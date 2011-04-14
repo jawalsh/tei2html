@@ -1,0 +1,2419 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Stylesheet documentation for: </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+        var parametersBoxes= new Array('prs_M_elementSpecS_tei2html-tagdoc.xsl');
+
+        
+        var usedByBoxes= new Array('uB_T_makeEgCaptionS_tei2html-tagdoc.xsl');
+
+        var docBoxes= new Array('dS_M_tagDocS_tei2html-tagdoc.xsl', 
+				'dS_M_tagDocgiS_tei2html-tagdoc.xsl', 
+				'dS_M_attListS_tei2html-tagdoc.xsl');
+
+        var sourceBoxes= new Array('src_M_tagDocS_tei2html-tagdoc.xsl', 
+				'src_M_elementSpecS_tei2html-tagdoc.xsl', 
+				'src_M_gitagS_tei2html-tagdoc.xsl', 
+				'src_M_attS_tei2html-tagdoc.xsl', 
+				'src_M_tagDocgiS_tei2html-tagdoc.xsl', 
+				'src_M_tagDocgiM_headS_tei2html-tagdoc.xsl', 
+				'src_M_attListS_tei2html-tagdoc.xsl', 
+				'src_M_attDefS_tei2html-tagdoc.xsl', 
+				'src_M_attNameS_tei2html-tagdoc.xsl', 
+				'src_M_datatypeS_tei2html-tagdoc.xsl', 
+				'src_M_valDescS_tei2html-tagdoc.xsl', 
+				'src_M_valListS_tei2html-tagdoc.xsl', 
+				'src_M_valListvalS_tei2html-tagdoc.xsl', 
+				'src_M_valListdescS_tei2html-tagdoc.xsl', 
+				'src_M_defaultS_tei2html-tagdoc.xsl', 
+				'src_M_remarksS_tei2html-tagdoc.xsl', 
+				'src_M_exemplumS_tei2html-tagdoc.xsl', 
+				'src_M_egS_tei2html-tagdoc.xsl', 
+				'src_M_classesS_tei2html-tagdoc.xsl', 
+				'src_M_elemDeclS_tei2html-tagdoc.xsl', 
+				'src_M_attlDeclS_tei2html-tagdoc.xsl', 
+				'src_M_codeS_tei2html-tagdoc.xsl', 
+				'src_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl', 
+				'src_M_egegXMLS_tei2html-tagdoc.xsl', 
+				'src_T_makeEgCaptionS_tei2html-tagdoc.xsl', 
+				'src_M_notetypecaptionS_tei2html-tagdoc.xsl', 
+				'src_M_notetypecaptionM_captionS_tei2html-tagdoc.xsl');
+
+        
+        
+        var referencesBoxes= new Array('refs_M_gitagS_tei2html-tagdoc.xsl', 
+				'refs_M_attS_tei2html-tagdoc.xsl', 
+				'refs_M_egS_tei2html-tagdoc.xsl', 
+				'refs_M_codeS_tei2html-tagdoc.xsl', 
+				'refs_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl', 
+				'refs_M_egegXMLS_tei2html-tagdoc.xsl');
+
+        
+        
+        
+        var includedFromBoxes= new Array('icF_tei2html-tagdoc.xsl');
+
+        var button_prefix = 'bt_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updPT(message) {
+            top.document.title = "Stylesheet documentation for: " + message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id){
+         var selectIds = new Array('toc_group_by_location', 'toc_group_by_component_type', 'toc_group_by_namespace', 'toc_group_by_mode');
+            // Make all the tabs invisible.
+            for (i = 0; i < 4; i++){
+               var tab = getElementObject(selectIds[i]);
+               tab.style.display = 'none';
+            }
+            var selTab = getElementObject(id);
+            selTab.style.display = 'block';            
+         }
+          
+
+    --></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cTL"></td>
+               <td class="rt_lT"></td>
+               <td class="rt_cTR"></td>
+            </tr>
+            <tr>
+               <td class="rt_lL"></td>
+               <td class="rt_cnt">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, docBoxes);"
+                                     class="control" /></span><span class="globalControlName">Documentation
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, parametersBoxes);"
+                                     class="control" /></span><span class="globalControlName">Parameters </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, usedByBoxes);"
+                                     class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, referencesBoxes);"
+                                     class="control" /></span><span class="globalControlName">References </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, includedFromBoxes);"
+                                     class="control" /></span><span class="globalControlName">Included from
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, sourceBoxes);"
+                                     class="control" /></span><span class="globalControlName">Source </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button"
+                               onclick="getElementObject('global_controls').style.display = 'none';"
+                               value="Close" /></span></div>
+               </td>
+               <td class="rt_lR"></td>
+            </tr>
+            <tr>
+               <td class="rt_cBL"></td>
+               <td class="rt_lB"></td>
+               <td class="rt_cBR"></td>
+            </tr>
+         </table>
+      </div><a id="tei2html-tagdoc.xsl"></a><div class="cmpT">Stylesheet
+         <span class="qname">tei2html-tagdoc.xsl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Included from</div>
+                           <div class="flR"><input id="bt_icF_tei2html-tagdoc.xsl" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('icF_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="icF_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td><a href="tei2html0.html#tei2html.xsl" target="_self" title="No namespace"
+                                          onclick="updPT('tei2html.xsl')">tei2html.xsl</a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Stylesheet version</td>
+                        <td>2.0</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_tagDocS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">tagDoc</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_tagDocS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('dS_M_tagDocS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_tagDocS_tei2html-tagdoc.xsl" style="display:block"><pre>&lt;xdoc:doc type="stylesheet"&gt;
+        &lt;xdoc:author&gt;John A. Walsh&lt;/xdoc:author&gt;
+        &lt;xdoc:copyright&gt;Copyright 2006 John A. Walsh&lt;/xdoc:copyright&gt;
+        &lt;xdoc:short&gt;XSLT stylesheet to transform TEI P5 documents to XHTML.&lt;/xdoc:short&gt;
+    &lt;/xdoc:doc&gt;</pre><hr /><pre>&lt;xdoc:doc&gt;Generates a table with tag documentation for an individual element.&lt;/xdoc:doc&gt;</pre></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>tagDoc</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_tagDocS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_tagDocS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_tagDocS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"tagDoc"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;h1</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"./gi"</span><span class="tAN"> mode=</span><span class="tAV">"head"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/h1&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;table</span><span class="tAN"> class=</span><span class="tAV">"graphic"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/table&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_elementSpecS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">elementSpec</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>elementSpec</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_M_elementSpecS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_M_elementSpecS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_M_elementSpecS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">element</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_elementSpecS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_elementSpecS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_elementSpecS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"elementSpec"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"element"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"altIdent"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('&lt;',normalize-space(altIdent),'&gt;')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('&lt;',normalize-space(@ident),'&gt;')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"elementSpec"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;h1</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$element"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/h1&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;table</span><span class="tAN"> class=</span><span class="tAV">"tagdoc"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;tbody</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;td</span><span class="tAN"> colspan=</span><span class="tAV">"2"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$element"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"desc"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"@ns"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Namespace</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"@ns"</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"exemplum"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">".//exemplum"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/tbody&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/table&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_gitagS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">gi|tag</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>gi|tag</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_gitagS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_gitagS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_gitagS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html2.html#T_idS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">id</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_gitagS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_gitagS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_gitagS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"gi|tag"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'code'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT">&lt;</span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT">&gt;</span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_attS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">att</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>att</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_attS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_attS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_attS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html2.html#T_idS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">id</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_attS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('src_M_attS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_attS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"att"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'code'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('@',normalize-space(.))"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_tagDocgiS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">tagDoc/gi</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_tagDocgiS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('dS_M_tagDocgiS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_tagDocgiS_tei2html-tagdoc.xsl" style="display:block"><pre>&lt;xdoc:doc&gt;Special template for gi as child of tagDoc, which is a row in the table for tagDoc documentation&lt;/xdoc:doc&gt;</pre></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>tagDoc/gi</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_tagDocgiS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_tagDocgiS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_tagDocgiS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"tagDoc/gi"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;tt</span><span class="tEl">&gt;</span><span class="tT">&lt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tT">&gt;</span><span class="tEl">&lt;/tt&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"gi"</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"../desc"</span><span class="tAN"> mode=</span><span class="tAV">"table"</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_tagDocgiM_headS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">tagDoc/gi</span><span class="titleTemplateMode">head</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>tagDoc/gi</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>head</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_tagDocgiM_headS_tei2html-tagdoc.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_tagDocgiM_headS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_tagDocgiM_headS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"tagDoc/gi"</span><span class="tAN"> mode=</span><span class="tAV">"head"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT">&lt;</span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT">&gt;</span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_attListS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">attList</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_M_attListS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('dS_M_attListS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_M_attListS_tei2html-tagdoc.xsl" style="display:block">
+                              <div>
+                                 <h3>Description</h3><pre> 
+    &lt;xsl:template match="desc" mode="table"&gt;
+        &lt;xsl:apply-templates/&gt;
+    &lt;/xsl:template&gt;
+    </pre></div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>attList</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_attListS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_attListS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_attListS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"attList"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Attributes</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"not(./child::*) and not(../classes)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tT">Global attributes only.</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"not(./child::*) and (../classes)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tT">Global attributes and those inherited from </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"../classes"</span><span class="tXSLEl">/&gt;</span><span class="tT">.</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--
+                        &lt;xsl:for-each select="id(../classes/@names)"&gt;
+                        &lt;xsl:value-of 
+                        &lt;/xsl:for-each&gt;
+                    --&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"(./child::*) and not(../classes)"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tT">(In addition to Global attributes.)</span><span class="tEl">&lt;br</span><span class="tEl">/&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tT">(In addition to Global attributes and those inherited from </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"../classes"</span><span class="tXSLEl">/&gt;</span><span class="tT">.)</span><span class="tEl">&lt;br</span><span class="tEl">/&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_attDefS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">attDef</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>attDef</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_attDefS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_attDefS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_attDefS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"attDef"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;table</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;tt</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"./attName"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/tt&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"desc"</span><span class="tAN"> mode=</span><span class="tAV">"table"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/table&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_attNameS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">attName</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>attName</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_attNameS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_attNameS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_attNameS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"attName"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_datatypeS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">datatype</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>datatype</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_datatypeS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_datatypeS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_datatypeS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"datatype"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tEl">&lt;i</span><span class="tEl">&gt;</span><span class="tT">Datatype: </span><span class="tEl">&lt;/i&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_valDescS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">valDesc</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>valDesc</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_valDescS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_valDescS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_valDescS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"valDesc"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_valListS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">valList</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>valList</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_valListS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_valListS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_valListS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"valList"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"@type='open'"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">Suggested values include:</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"@type='closed'"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tT">Legal values are:</span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;dl</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/dl&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_valListvalS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">valList/val</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>valList/val</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_valListvalS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_valListvalS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_valListvalS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"valList/val"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;dt</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/dt&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_valListdescS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">valList/desc</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>valList/desc</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_valListdescS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_valListdescS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_valListdescS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"valList/desc"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;dd</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/dd&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_defaultS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">default</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_defaultS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_defaultS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_defaultS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"default"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;p</span><span class="tEl">&gt;</span><span class="tEl">&lt;i</span><span class="tEl">&gt;</span><span class="tT">Default: </span><span class="tEl">&lt;/i&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/p&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_remarksS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">remarks</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>remarks</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_remarksS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_remarksS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_remarksS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"remarks"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Notes</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_exemplumS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">exemplum</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>exemplum</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_exemplumS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_exemplumS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_exemplumS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"exemplum"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Example</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"wrap"</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_egS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">eg</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>eg</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_egS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('refs_M_egS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_egS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html6.html#T_makeEgCaptionS_tei2html-tagdoc.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-tagdoc.xsl')"><span class="nRf">makeEgCaption</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_egS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('src_M_egS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_egS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"eg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'eg'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;pre</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/pre&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"makeEgCaption"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_classesS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">classes</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>classes</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_classesS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_classesS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_classesS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"classes"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Class(es)</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_elemDeclS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">elemDecl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>elemDecl</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_elemDeclS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_elemDeclS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_elemDeclS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"elemDecl"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tr</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;td</span><span class="tAN"> class=</span><span class="tAV">"label"</span><span class="tEl">&gt;</span><span class="tT">Declaration</span><span class="tEl">&lt;/td&gt;</span><span class="tEl">&lt;td</span><span class="tEl">&gt;</span><span class="tEl">&lt;pre</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"."</span><span class="tXSLEl">/&gt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"../attlDecl"</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/pre&gt;</span><span class="tEl">&lt;/td&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/tr&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_attlDeclS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">attlDecl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>attlDecl</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_attlDeclS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_attlDeclS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_attlDeclS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"attlDecl"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_codeS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">code</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>code</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_codeS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_codeS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_codeS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html2.html#T_idS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">id</span></a>; <a href="tei2html2.html#T_rendS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rend</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_codeS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_codeS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_codeS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"code"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'code'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rend"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_codecontainsrenditionblockS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">code[contains(@rendition,'#block')]</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>code[contains(@rendition,'#block')]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html2.html#T_idS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">id</span></a>; <a href="tei2html2.html#T_rendS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rend</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_codecontainsrenditionblockS_tei2html-tagdoc.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"code[contains(@rendition,'#block')]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;pre</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'code'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rend"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/pre&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_egegXMLS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">eg:egXML</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>eg:egXML</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_egegXMLS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_egegXMLS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_egegXMLS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html6.html#T_makeEgCaptionS_tei2html-tagdoc.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-tagdoc.xsl')"><span class="nRf">makeEgCaption</span></a>; <a href="tei2html2.html#T_renditionS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="nRf">rendition</span></a>; <a href="tei2html12.html#T_xml-to-stringS_xml-to-string.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('xml-to-string.xsl')"><span class="nRf">xml-to-string</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_egegXMLS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_egegXMLS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_egegXMLS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"eg:egXML"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"rendition"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"defaultRend"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'eg'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;pre</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;tt</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"xml-to-string"</span><span class="tAN"> exclude-result-prefixes=</span><span class="tAV">"eg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"node-set"</span><span class="tXSLEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:copy-of</span><span class="tAN"> select=</span><span class="tAV">"node()|@*"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/tt&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/pre&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"makeEgCaption"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_makeEgCaptionS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">makeEgCaption</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_makeEgCaptionS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_makeEgCaptionS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_makeEgCaptionS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html6.html#M_egS_tei2html-tagdoc.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-tagdoc.xsl')"><span class="mRf">eg</span></a>; <a href="tei2html6.html#M_egegXMLS_tei2html-tagdoc.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-tagdoc.xsl')"><span class="mRf">eg:egXML</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_makeEgCaptionS_tei2html-tagdoc.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_makeEgCaptionS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_makeEgCaptionS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"makeEgCaption"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"following-sibling::note[@type = 'caption']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;div</span><span class="tAN"> class=</span><span class="tAV">"caption"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'Example '"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:number</span><span class="tAN"> level=</span><span class="tAV">"any"</span><span class="tAN"> count=</span><span class="tAV">"eg[following-sibling::note[@type = 'caption']]|eg:egXML[following-sibling::note[@type = 'caption']]"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'. '"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"following-sibling::note[@type = 'caption'][1]"</span><span class="tAN"> mode=</span><span class="tAV">"caption"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_notetypecaptionS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">note[@type = 'caption']</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>note[@type = 'caption']</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_notetypecaptionS_tei2html-tagdoc.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_notetypecaptionS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_notetypecaptionS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"note[@type = 'caption']"</span><span class="tXSLEl">/&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_notetypecaptionM_captionS_tei2html-tagdoc.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">note[@type = 'caption']</span><span class="titleTemplateMode">caption</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>note[@type = 'caption']</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>caption</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_notetypecaptionM_captionS_tei2html-tagdoc.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_notetypecaptionM_captionS_tei2html-tagdoc.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_notetypecaptionM_captionS_tei2html-tagdoc.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"note[@type = 'caption']"</span><span class="tAN"> mode=</span><span class="tAV">"caption"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">Stylesheet documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--                     
+                    // The namespace is the selected option in the TOC combo.
+                    
+                    // The corresponding div is already visible conf. to its style attr.                     
+                    
+                            var selectToc = getElementObject('selectTOC');
+                            if(selectToc != null){
+                            // It can be null when having chunking, the combo of the TOC is in another frame.
+                            selectToc.selectedIndex = 0;
+                            }
+                        
+                    
+                    // Floats the toolbar.
+                    var globalControls = getElementObject("global_controls"); 
+                    
+                    if(globalControls != null){
+                    var browser=navigator.appName;
+                    var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+                    
+                    var IE6 = false;
+                    if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+                    IE6 = true;
+                    }
+                    
+                    //alert (IE6 + " |V| " + version);
+                    
+                    if(IE6){
+                    // On IE 6 the 'fixed' property is not supported. We must use javascript. 
+                    globalControls.style.position='absolute';                         
+                    // The global controls will do not exist in the TOC frame, when chunking.
+                    findAndFloat("global_controls", 225, 30);    
+                    } else {
+                    globalControls.style.position='fixed';                     	
+                    }
+                    
+                    globalControls.style.right='0';                       
+                    }
+                --></script></body>
+</html>

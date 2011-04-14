@@ -1,0 +1,2096 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Stylesheet documentation for: </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript">
+         <!--
+        
+        var parametersBoxes= new Array('prs_T_docinfoS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-extentS_tei2html-docinfo.xsl', 
+				'prs_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');
+
+        
+        var usedByBoxes= new Array('uB_T_docinfoS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-authorS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-extentS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-dateS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl', 
+				'uB_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');
+
+        var docBoxes= new Array('dS_T_docinfoS_tei2html-docinfo.xsl');
+
+        var sourceBoxes= new Array('src_T_docinfoS_tei2html-docinfo.xsl', 
+				'src_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl', 
+				'src_M_pparentavailabilityS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-authorS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-extentS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-dateS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl', 
+				'src_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');
+
+        
+        
+        var referencesBoxes= new Array('refs_T_docinfoS_tei2html-docinfo.xsl', 
+				'refs_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl', 
+				'refs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl', 
+				'refs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl', 
+				'refs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl');
+
+        
+        
+        
+        var includedFromBoxes= new Array('icF_tei2html-docinfo.xsl');
+
+        var button_prefix = 'bt_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updPT(message) {
+            top.document.title = "Stylesheet documentation for: " + message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id){
+         var selectIds = new Array('toc_group_by_location', 'toc_group_by_component_type', 'toc_group_by_namespace', 'toc_group_by_mode');
+            // Make all the tabs invisible.
+            for (i = 0; i < 4; i++){
+               var tab = getElementObject(selectIds[i]);
+               tab.style.display = 'none';
+            }
+            var selTab = getElementObject(id);
+            selTab.style.display = 'block';            
+         }
+          
+
+    --></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cTL"></td>
+               <td class="rt_lT"></td>
+               <td class="rt_cTR"></td>
+            </tr>
+            <tr>
+               <td class="rt_lL"></td>
+               <td class="rt_cnt">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, docBoxes);"
+                                     class="control" /></span><span class="globalControlName">Documentation
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, parametersBoxes);"
+                                     class="control" /></span><span class="globalControlName">Parameters </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, usedByBoxes);"
+                                     class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, referencesBoxes);"
+                                     class="control" /></span><span class="globalControlName">References </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, includedFromBoxes);"
+                                     class="control" /></span><span class="globalControlName">Included from
+                              </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked"
+                                     onclick="switchStateForAll(this, sourceBoxes);"
+                                     class="control" /></span><span class="globalControlName">Source </span></td>
+                     </tr>
+                  </table>
+                  <div align="right"><span><input type="button"
+                               onclick="getElementObject('global_controls').style.display = 'none';"
+                               value="Close" /></span></div>
+               </td>
+               <td class="rt_lR"></td>
+            </tr>
+            <tr>
+               <td class="rt_cBL"></td>
+               <td class="rt_lB"></td>
+               <td class="rt_cBR"></td>
+            </tr>
+         </table>
+      </div><a id="tei2html-docinfo.xsl"></a><div class="cmpT">Stylesheet
+         <span class="qname">tei2html-docinfo.xsl</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Included from</div>
+                           <div class="flR"><input id="bt_icF_tei2html-docinfo.xsl" type="image" src="img/btM.gif" value="-"
+                                     onclick="switchState('icF_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="icF_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td><a href="tei2html0.html#tei2html.xsl" target="_self" title="No namespace"
+                                          onclick="updPT('tei2html.xsl')">tei2html.xsl</a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Stylesheet version</td>
+                        <td>2.0</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_docinfoS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">docinfo</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Documentation</div>
+                           <div class="flR"><input id="bt_dS_T_docinfoS_tei2html-docinfo.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('dS_T_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="dS_T_docinfoS_tei2html-docinfo.xsl" style="display:block"><pre>&lt;xdoc:doc type="stylesheet"&gt;
+        &lt;xdoc:author&gt;John A. Walsh&lt;/xdoc:author&gt;
+        &lt;xdoc:copyright&gt;Copyright 2006 John A. Walsh&lt;/xdoc:copyright&gt;
+        &lt;xdoc:short&gt;XSLT stylesheet to transform TEI P5 documents to XHTML.&lt;/xdoc:short&gt;
+    &lt;/xdoc:doc&gt;</pre><hr /><pre>&lt;xdoc:doc&gt;Outputs a div containing a variety of document metadata.  This template is a likely candidate for local customization and so lives in a separate tei2html-moduleName.xsl module. Output includes a script element that references a swap.js file used to hid and display the document information. The data for "genre" comes form an extention—a type attribute added to text.&lt;/xdoc:doc&gt;</pre></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_docinfoS_tei2html-docinfo.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_docinfoS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html2.html#M_TEIteiCorpusS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="mRf">TEI|teiCorpus</span></a>; <a href="tei2html2.html#M_teiCorpousTEIS_tei2html-main.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-main.xsl')"><span class="mRf">teiCorpous/TEI</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_docinfoS_tei2html-docinfo.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_T_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_docinfoS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html8.html#T_getXtmNameS_tei2html-xtm.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-xtm.xsl')"><span class="nRf">getXtmName</span></a></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">Parameter</td>
+                                    <td><a href="tei2html1.html#P_xmlSourcePathS_tei2html-conf.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-conf.xsl')">xmlSourcePath</a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_docinfoS_tei2html-docinfo.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_docinfoS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">id</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_docinfoS_tei2html-docinfo.xsl" type="image" src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_docinfoS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"docinfo"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"id"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"/TEI/@xml:id"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tC">&lt;!--
+        &lt;script type="text/javascript" src="js/swap.js"&gt;&lt;xsl:comment&gt;No empty script tags&lt;/xsl:comment&gt;&lt;/script&gt;
+        --&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"docInfoLink"</span><span class="tEl">&gt;</span><span class="tT">[</span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"javascript:showDocInfo()"</span><span class="tEl">&gt;</span><span class="tT">show document information</span><span class="tEl">&lt;/a&gt;</span><span class="tT">]</span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"show"</span><span class="tEl">&gt;</span><span class="tT">[</span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"javascript:showDocInfo()"</span><span class="tEl">&gt;</span><span class="tT">show document information</span><span class="tEl">&lt;/a&gt;</span><span class="tT">]</span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"hide"</span><span class="tEl">&gt;</span><span class="tT">[</span><span class="tEl">&lt;a</span><span class="tAN"> href=</span><span class="tAV">"javascript:hideDocInfo()"</span><span class="tEl">&gt;</span><span class="tT">hide document information</span><span class="tEl">&lt;/a&gt;</span><span class="tT">]</span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"empty"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;span</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"docInfoShell"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;span</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:text</span><span class="tXSLEl">&gt;</span><span class="tT"> </span><span class="tXSLEl">&lt;/xsl:text&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"docInfoHidden"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;div</span><span class="tAN"> id=</span><span class="tAV">"docInfo"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;h1</span><span class="tEl">&gt;</span><span class="tT">Document Information</span><span class="tEl">&lt;/h1&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;ul</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/author"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">author: </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/author/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/author/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/author"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!--
+                                &lt;xsl:value-of select="teiHeader/fileDesc/titleStmt/author/"/&gt;
+                                --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">title: </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/title"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/editor"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">editor: </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/editor/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tXSLEl">&gt;</span><span class="tI">
+                    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/editor/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                  </span><span class="tXSLEl">&lt;/xsl:with-param&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+                </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/titleStmt/editor"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+                </span><span class="tC">&lt;!--
+                                    &lt;xsl:value-of select="teiHeader/fileDesc/titleStmt/author/"/&gt;
+                                --&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">publisher: </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(teiHeader/fileDesc/publicationStmt/publisher)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">rights:</span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"teiHeader/fileDesc/publicationStmt/availability"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!--
+                    &lt;li&gt;
+                        &lt;b&gt;genre: &lt;/b&gt;
+                        &lt;xsl:choose&gt;
+                            &lt;xsl:when test="/TEI.2/text/@type = 'poem'"&gt;
+                                &lt;xsl:text&gt;poetry&lt;/xsl:text&gt;
+                            &lt;/xsl:when&gt;
+                            &lt;xsl:when test="/TEI.2/text/@type"&gt;
+                                &lt;xsl:value-of select="/TEI.2/text/@type"/&gt;
+                            &lt;/xsl:when&gt;
+                            &lt;xsl:otherwise&gt;
+                                &lt;xsl:text&gt;unspecified&lt;/xsl:text&gt;
+                            &lt;/xsl:otherwise&gt;
+                        &lt;/xsl:choose&gt;
+                    &lt;/li&gt;
+                    --&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">source document: </span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;br</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc"</span><span class="tAN"> mode=</span><span class="tAV">"docinfo"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">swinburne project id: </span><span class="tEl">&lt;/b&gt;</span><span class="tEl">&lt;span</span><span class="tAN"> id=</span><span class="tAV">"said"</span><span class="tEl">&gt;</span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"/TEI/@xml:id"</span><span class="tXSLEl">/&gt;</span><span class="tEl">&lt;/span&gt;</span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;li</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;b</span><span class="tEl">&gt;</span><span class="tT">XML source:</span><span class="tEl">&lt;/b&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;br</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;a</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:attribute</span><span class="tAN"> name=</span><span class="tAV">"href"</span><span class="tXSLEl">&gt;</span><span class="tI">
+              </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat($xmlSourcePath,$id,'/')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;/xsl:attribute&gt;</span><span class="tI">
+            </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat($xmlSourcePath,$id,'/')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/a&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/li&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/ul&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/div&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="titleTemplateMode">docinfo</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>/TEI/teiHeader/fileDesc/sourceDesc</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>docinfo</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                     type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Templates</td>
+                                    <td><a href="tei2html5.html#T_get-sourceDesc-authorS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-author</span></a>; <a href="tei2html5.html#T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-biblScope</span></a>; <a href="tei2html5.html#T_get-sourceDesc-dateS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-date</span></a>; <a href="tei2html5.html#T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-editor-analytic</span></a>; <a href="tei2html5.html#T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-editor-monogr</span></a>; <a href="tei2html5.html#T_get-sourceDesc-extentS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-extent</span></a>; <a href="tei2html5.html#T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-origPubInfo</span></a>; <a href="tei2html5.html#T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-pubPlace</span></a>; <a href="tei2html5.html#T_get-sourceDesc-publisherS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-publisher</span></a>; <a href="tei2html5.html#T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-title-analytic</span></a>; <a href="tei2html5.html#T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="nRf">get-sourceDesc-title-monogr</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                     type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc"</span><span class="tAN"> mode=</span><span class="tAV">"docinfo"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;span</span><span class="tAN"> class=</span><span class="tAV">"bibl"</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-author"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-editor-analytic"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-title-analytic"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-title-monogr"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-editor-monogr"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-extent"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-pubPlace"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-publisher"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-date"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-biblScope"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-origPubInfo"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/span&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="M_pparentavailabilityS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateMatch">p[parent::availability]</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Match</td>
+                        <td>p[parent::availability]</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Mode</td>
+                        <td>#default</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_M_pparentavailabilityS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_M_pparentavailabilityS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_M_pparentavailabilityS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> match=</span><span class="tAV">"p[parent::availability]"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:apply-templates</span><span class="tXSLEl">/&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-authorS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-author</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-authorS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html8.html#T_getXtmNameS_tei2html-xtm.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-xtm.xsl')"><span class="nRf">getXtmName</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">author</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-authorS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-authorS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-author"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"author"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/author/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/author/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/author"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/author"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/author/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/author/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/editor"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"'unknown'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$author != ''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space($author),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-editor-analytic</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                     type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html8.html#T_getXtmNameS_tei2html-xtm.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-xtm.xsl')"><span class="nRf">getXtmName</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">editor</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-editor-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-editor-analytic"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"editor"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/editor/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/editor/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/editor"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/editor"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!--
+                &lt;xsl:when test="/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor/persName/@key"&gt;
+                    &lt;xsl:call-template name="getXtmName"&gt;
+                        &lt;xsl:with-param name="target" select="/TEI/teiHeader/fileDesc/editor/author/persName/@key"/&gt;
+                    &lt;/xsl:call-template&gt;
+                &lt;/xsl:when&gt;
+                --&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$editor != ''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space($editor),', ed. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-editor-monogr</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">References</div>
+                           <div class="flR"><input id="bt_refs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('refs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="refs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html8.html#T_getXtmNameS_tei2html-xtm.xsl" target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-xtm.xsl')"><span class="nRf">getXtmName</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">editor</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-editor-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-editor-monogr"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"editor"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor/persName/@key"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:call-template</span><span class="tAN"> name=</span><span class="tAV">"getXtmName"</span><span class="tXSLEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"target"</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor/persName/@key"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:with-param</span><span class="tAN"> name=</span><span class="tAV">"scope"</span><span class="tAN"> select=</span><span class="tAV">"'display'"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;/xsl:call-template&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tC">&lt;!--
+                    &lt;xsl:when test="/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/editor/persName/@key"&gt;
+                    &lt;xsl:call-template name="getXtmName"&gt;
+                    &lt;xsl:with-param name="target" select="/TEI/teiHeader/fileDesc/editor/author/persName/@key"/&gt;
+                    &lt;/xsl:call-template&gt;
+                    &lt;/xsl:when&gt;
+                --&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$editor != ''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('Ed. ',normalize-space($editor),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-title-analytic</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">title</td>
+                                    <td>No namespace</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-title-analyticS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-title-analytic"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"title"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/title/choice/reg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/title/choice/reg)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/title"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/title)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:param&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/analytic/title/@level = 'm'"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;cite</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"$title"</span><span class="tXSLEl">/&gt;</span><span class="tT">.</span><span class="tEl">&lt;/cite&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"' '"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat('“',$title,'.” ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-title-monogr</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-title-monogrS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-title-monogr"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/title/choice/reg"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;cite</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/title/choice/reg),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/cite&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/title"</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:for-each</span><span class="tAN"> select=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/title"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tC">&lt;!-- this doesn't work with more than one title, e.g.,:
+                    &lt;monogr&gt;
+                    &lt;author&gt;Adams, Antoníeta&lt;/author&gt;
+                    &lt;title&gt;El Proyecto Crack&lt;/title&gt;
+                    &lt;title type="sub"&gt;Cuentos Grises&lt;/title&gt;
+                    &lt;imprint&gt;
+                    &lt;pubPlace&gt;Concepción, Chile&lt;/pubPlace&gt;
+                    &lt;publisher&gt;Ediciones Letra Nueva&lt;/publisher&gt;
+                    &lt;date when="2005"&gt;2005&lt;/date&gt;
+                    &lt;/imprint&gt;
+                    &lt;/monogr&gt;
+                 --&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;cite</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(.),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/cite&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:for-each&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-extentS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-extent</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-extentS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-extentS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Select</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">extent</td>
+                                    <td>No namespace</td>
+                                    <td>normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/extent)</td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-extentS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-extentS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-extent"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"extent"</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/extent)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$extent != ''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"ends-with($extent,'.')"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat($extent,' ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat($extent,'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-pubPlace</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-pubPlaceS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-pubPlace"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/pubPlace"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/pubPlace),': ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-publisherS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-publisher</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-publisherS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-publisher"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/publisher"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/publisher),', ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-dateS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-date</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-dateS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-dateS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-dateS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-dateS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-dateS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-dateS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-date"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/date/@when"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/date/@when),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-biblScope</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-biblScopeS_tei2html-docinfo.xsl" style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-biblScope"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'vol']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:choose</span><span class="tXSLEl">&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:when</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'pp']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'vol']),': ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:when&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;xsl:otherwise</span><span class="tXSLEl">&gt;</span><span class="tI">
+        </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'vol']),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+      </span><span class="tXSLEl">&lt;/xsl:otherwise&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;/xsl:choose&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'pp']"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat(normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@type = 'pp']),'. ')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table><a id="T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl"></a><div class="cmpT">Template
+         <span class="titleTemplateName">get-sourceDesc-origPubInfo</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cTL"></td>
+            <td class="rt_lT"></td>
+            <td class="rt_cTR"></td>
+         </tr>
+         <tr>
+            <td class="rt_lL"></td>
+            <td class="rt_cnt">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="fCol">Namespace</td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Used by</div>
+                           <div class="flR"><input id="bt_uB_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('uB_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="uB_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="uBT">
+                                 <tr>
+                                    <td class="fCol">Template</td>
+                                    <td><a href="tei2html5.html#M_TEIteiHeaderfileDescsourceDescM_docinfoS_tei2html-docinfo.xsl"
+                                          target="_self"
+                                          title="No namespace"
+                                          onclick="updPT('tei2html-docinfo.xsl')"><span class="mRf">/TEI/teiHeader/fileDesc/sourceDesc</span><span class="mdRf">docinfo</span></a></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Parameters</div>
+                           <div class="flR"><input id="bt_prs_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('prs_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="prs_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="attsT">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th>Namespace</th>
+                                       <th>Select</th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="fCol">date</td>
+                                    <td>No namespace</td>
+                                    <td>normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type =
+                                       'original_collection']/biblStruct/monogr/imprint/date/@when)
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">pubPlace</td>
+                                    <td>No namespace</td>
+                                    <td>normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type =
+                                       'original_collection']/biblStruct/monogr/imprint/pubPlace)
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="fCol">publisher</td>
+                                    <td>No namespace</td>
+                                    <td>normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type =
+                                       'original_collection']/biblStruct/monogr/imprint/publisher)
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">Import precedence</td>
+                        <td>0</td>
+                     </tr>
+                     <tr>
+                        <td class="fCol">
+                           <div class="flL">Source</div>
+                           <div class="flR"><input id="bt_src_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl" type="image"
+                                     src="img/btM.gif"
+                                     value="-"
+                                     onclick="switchState('src_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl');"
+                                     class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="src_T_get-sourceDesc-origPubInfoS_tei2html-docinfo.xsl"
+                                style="display:block">
+                              <table class="pWCont">
+                                 <tr>
+                                    <td width="100%"><pre><span class="tXSLEl">&lt;xsl:template</span><span class="tAN"> name=</span><span class="tAV">"get-sourceDesc-origPubInfo"</span><span class="tXSLEl">&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"pubPlace"</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type = 'original_collection']/biblStruct/monogr/imprint/pubPlace)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"publisher"</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type = 'original_collection']/biblStruct/monogr/imprint/publisher)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:param</span><span class="tAN"> name=</span><span class="tAV">"date"</span><span class="tAN"> select=</span><span class="tAV">"normalize-space(/TEI/teiHeader/fileDesc/sourceDesc/biblStruct/relatedItem[@type = 'original_collection']/biblStruct/monogr/imprint/date/@when)"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;xsl:if</span><span class="tAN"> test=</span><span class="tAV">"$pubPlace != '' and $publisher != '' and $date != ''"</span><span class="tXSLEl">&gt;</span><span class="tI">
+    </span><span class="tXSLEl">&lt;xsl:value-of</span><span class="tAN"> select=</span><span class="tAV">"concat($pubPlace,': ',$publisher,', ',$date,'.')"</span><span class="tXSLEl">/&gt;</span><span class="tI">
+  </span><span class="tXSLEl">&lt;/xsl:if&gt;</span><span class="tI">
+</span><span class="tXSLEl">&lt;/xsl:template&gt;</span></pre></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lR"></td>
+         </tr>
+         <tr>
+            <td class="rt_cBL"></td>
+            <td class="rt_lB"></td>
+            <td class="rt_cBR"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div align="center">Stylesheet documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor.
+         </div>
+      </div><script type="text/javascript">
+         <!--                     
+                    // The namespace is the selected option in the TOC combo.
+                    
+                    // The corresponding div is already visible conf. to its style attr.                     
+                    
+                            var selectToc = getElementObject('selectTOC');
+                            if(selectToc != null){
+                            // It can be null when having chunking, the combo of the TOC is in another frame.
+                            selectToc.selectedIndex = 0;
+                            }
+                        
+                    
+                    // Floats the toolbar.
+                    var globalControls = getElementObject("global_controls"); 
+                    
+                    if(globalControls != null){
+                    var browser=navigator.appName;
+                    var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+                    
+                    var IE6 = false;
+                    if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+                    IE6 = true;
+                    }
+                    
+                    //alert (IE6 + " |V| " + version);
+                    
+                    if(IE6){
+                    // On IE 6 the 'fixed' property is not supported. We must use javascript. 
+                    globalControls.style.position='absolute';                         
+                    // The global controls will do not exist in the TOC frame, when chunking.
+                    findAndFloat("global_controls", 225, 30);    
+                    } else {
+                    globalControls.style.position='fixed';                     	
+                    }
+                    
+                    globalControls.style.right='0';                       
+                    }
+                --></script></body>
+</html>
