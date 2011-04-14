@@ -1,0 +1,1295 @@
+body {
+    font-family: georgia, times, serif;
+    font-size: medium;
+    margin: 0 1.5em 1.5em 1.5em;
+    padding: 0em 2em 2em 2em;
+/* border: 1px solid black; */
+    background-color: #000000;
+    color: #827976;
+    
+}
+
+.kw-sea {
+color: #0000ff;
+}
+
+.kw-time {
+color: #ffff00;
+}
+
+.kw-poet {
+color: #ff00ff;
+}
+
+.kw-heavens {
+color: #ffffff;
+}
+
+.kw-fire {
+color: #ff0000;
+}
+
+.kw-air {
+color: #ff7b00;
+}
+
+.kw-song {
+color: #00ff00;
+}
+
+.u-black {
+border-bottom: 1px solid black;
+}
+
+.double-red-1point7cm {
+width: 1.7cm;
+border-bottom: 1px solid red;
+
+}
+
+#output-content {
+  -moz-column-width: 50em;
+  /* width: 50em; */
+  font-size: 3px;
+}
+
+.uc {text-transform: uppercase;}
+.lc {text-transform: lowercase;}
+
+div#docTitle {
+    font-size: 140%;
+    font-weight: bold;
+    color: #351408;
+    margin-bottom: .2em;
+}
+div#docAuthor {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #351408;
+    margin-top: .2em;
+    margin-bottom: .5em;
+}
+div#docSource {
+    font-size: 8pt;
+    color: #351408;
+    margin-top: .1em;
+    margin-bottom: .2em;
+}
+div#docHeader hr {
+     
+}
+div#text {
+    margin: 2em 2em 2em 2em;
+     
+}
+div.floatExpand:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+body.small {
+    font-family: georgia, times, serif;
+    font-size: 80%;
+    margin: 2em;
+}
+.font-size24 {
+    font-size: 24pt;
+     
+}
+dt {
+    font-weight: bold;
+    page-break-after: avoid;
+}
+/* tables */
+td {
+    font-family: georgia, times, serif;
+    font-size: 10pt;
+}
+td div:first-child, ul:first-child, ol:first-child {
+    padding-top: 0;
+    margin-top: 0;
+}
+table.border td {
+    border: 1px solid black;
+     
+}
+th {
+    text-align: left;
+     
+}
+td.label {
+    width: 15%;
+    font-weight: bold;
+    vertical-align: top;
+}
+span.label {
+    font-weight: bold;
+    font-size: 90%;
+}
+td.right {
+/*
+  font-family: georgia, times, serif;
+  font-size: 10pt;
+  font-weight: bold;
+  background-color: #65d75d;
+ */
+    text-align: right;
+}
+div.floatright {
+    float: right;
+    margin: 0 0 0 2em;
+}
+div.floatleft {
+    float: left;
+     
+}
+table#advancedSearch td {
+    font-size: x-small;
+     
+}
+div#searchTips {
+    float: right;
+    margin-top: 5em;
+    font-size: 80%;
+    padding: 0;
+    background-color: #d3c8b4;
+    border-style: solid;
+    border-color: #351408;
+    border-width: 2px 2px 2px 2px;
+    width: 40%;
+}
+div#news {
+    margin-top: 1em;
+    font-size: 80%;
+    padding: 0;
+    background-color: #d3c8b4;
+    border-style: solid;
+    border-color: #351408;
+    border-width: 2px 2px 2px 2px;
+    width: 40%;
+}
+div#searchTipsHead, div#newsHead {
+    background-color: #351408;
+    color: #edd7b7;
+    margin: 0;
+    padding: 0 1px 2px 2px;
+}
+div#searchTipsBody, div#newsBody {
+    padding: 0 1em 0 1em;
+     
+}
+tr {
+    page-break-after: avoid;
+     
+}
+/* Styles for graphically rendered tables */
+table.graphic {
+    width: 90%;
+    margin: 2em;
+    page-break-inside: avoid;
+}
+table.graphic td {
+    font-family: georgia, times, serif;
+    font-size: 10pt;
+/* background-color: #8ed764; */
+    background-color: #ffffcc;
+    border: 1px solid #351408;
+    vertical-align: top;
+    font-weight: normal;
+}
+table.graphic td.label {
+    font-family: georgia, times, serif;
+    font-size: 8pt;
+    font-weight: bold;
+    vertical-align: top;
+/* background-color: #65d75d; */
+    background-color: #ffff99;
+}
+table.graphic th {
+    font-family: georgia, times, serif;
+    font-size: 8pt;
+    font-weight: bold;
+    vertical-align: top;
+    background-color: #65d75d;
+    border: 1px solid #351408;
+}
+/*
+  Styles for tabBox content.  Used for TEI list[@type='gloss'].
+  label appears in a tab and content appears below.
+ */
+table.tabBox {
+    width: 100%;
+    border: 0;
+    padding: 0;
+    padding-bottom: 1em;
+}
+table.tabBoxHead {
+    width: 100%;
+    border: 0;
+    padding-top: 1em;
+}
+td.tabBoxLabel {
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #999999;
+    border-left: 1px solid #cccccc;
+    padding: 2px;
+    background-color: #fef7df;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 8pt;
+}
+td.tabBoxLabelEmpty {
+    width: 85%;
+    border-bottom: 1px solid #cccccc;
+}
+td.tabBoxContent {
+/* td should be colspan='2' */
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    border-left: 1px solid #cccccc;
+    padding: 6px;
+    background-color: #fef7df;
+    font-size: 8pt;
+}
+td.tabBoxHead {
+    border: 1px solid #cccccc;
+    background-color: #fef7df;
+    color: #351408;
+    font-weight: bold;
+    font-size: 8pt;
+}
+/* poetry */
+span.lg {
+    display: block;
+    margin: 1em 0 1em 0;
+}
+span.sublg {
+    display: block;
+    margin: 0;
+}
+span.lineWrapper {
+    display: block;
+    margin: 0;
+    width: 38em; /* 530px; */
+}
+span.lineWrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+span.line {
+    display: block;
+    width:  36em; /* 470px; */
+    margin: 0 0 0 0;
+    padding-left: 1em;
+    float: left;
+}
+span.lineWithMilestone, span.lineWithLabel {
+    display: block;
+    width: 29em; /* 400px; */
+    margin: 0 0 0 0;
+    padding-left: 1em;
+    float: left;
+}
+span.lineLabel {
+    display: block;
+    float: left;
+    font-size: 70%;
+    width: 7em; /* 70px; */
+    text-align: left;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+span.number {
+    display: block;
+    margin: 0;
+    font-style: normal;
+    width: 2em; /* 30px;*/
+    text-align: right;
+    float: right;
+    color: #999999;
+}
+td.label {
+    width: 10em;
+    vertical-align: top;
+}
+.ti-0 {
+    display: block;
+    text-indent: -1em;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.ti-1 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 1em;
+}
+.ti-2 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 2em;
+}
+.ti-3 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 3em;
+}
+.ti-4 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 4em;
+}
+.ti-5 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 5em;
+}
+.ti-6 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 6em;
+}
+.ti-7 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 7em;
+}
+.ti-8 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 8em;
+}
+.ti-9 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 9em;
+}
+.ti-10 {
+    display: block;
+    text-indent: -1em;
+    margin: 0;
+    padding-left: 10em;
+}
+/* headings */
+h1 {
+    font-size: 140%;
+    color: #351408;
+    margin-bottom: 0;
+    page-break-after: avoid;
+}
+h1.small {
+    font-size: small;
+    color: #351408;
+    margin-bottom: 0;
+    page-break-after: avoid;
+}
+h2 {
+    font-size: 100%;
+    color: #351408;
+    page-break-after: avoid;
+}
+/* Generic TEI head.  Modeled on h4, but black. */
+.head {
+    font-size: 90%;
+    font-weight: bold;
+    page-break-after: avoid;
+}
+h3 {
+    font-size: 90%;
+    color: #351408;
+    font-style: italic;
+    page-break-after: avoid;
+}
+h4 {
+    font-size: 85%;
+    color: #351408;
+    page-break-after: avoid;
+}
+div.genericHeading {
+    color: #351408;
+    font-weight: bold;
+    page-break-after: avoid;
+}
+h5 {
+    font-size: 85%;
+    color: #351408;
+    page-break-after: avoid;
+}
+h6 {
+    font-size: 85%;
+    color: #351408;
+    page-break-after: avoid;
+}
+hr.h1 {
+    text-align: left;
+    color: #351408;
+    width: 90%;
+    margin-top: 0;
+}
+hr.figureBorder {
+    text-align: center;
+    width: 80%;
+    color: #351408;
+    background-color: #351408;
+}
+.bibl {
+    display: block;
+    margin-left: 2em;
+    text-indent: -2em;
+    padding: 0;
+}
+.hang {
+    margin-left: 2em;
+    text-indent: -2em;
+    padding: 0;
+}
+.hangPadTop {
+    margin-left: 2em;
+    text-indent: -2em;
+    padding-top: 1em;
+}
+div {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    widows: 2;
+    orphans: 2;
+}
+
+span.p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    widows: 2;
+    orphans: 2;
+    line-height: 1.6;
+    text-align:left;
+text-align:justify; 
+text-indent: 2em; 
+}
+
+.just {
+text-align: justify;
+}
+
+div.noIndent {
+text-indent: 0;
+}
+span[title="fw"] {
+    text-align: center;
+     
+}
+.center {
+    text-align: center;
+    display: block;
+}
+td.center, th.center {
+    text-align: center;
+}
+.teidiv0_landscape {
+    page: landscape;
+     
+}
+/* removed div indents for Swinburne */
+  .teidiv1, .teidiv2, .teidiv3, .teidiv4, .teidiv5, .teidiv6 {
+  padding-left: 1.5em;
+  }
+.red {
+    color: red;
+     
+}
+.super {
+    vertical-align: super;
+    font-size: 80%;
+}
+.sub {
+    vertical-align: sub;
+    font-size: 80%;
+}
+/* lists */
+.listStyleNone {
+    list-style-type: none;
+     
+}
+ul {
+    widows: 2;
+    orphans: 2;
+}
+li {
+    margin-bottom: .25em;
+    widows: 2;
+    orphans: 2;
+}
+
+/* for castList[rendition~=#list]*/
+
+.list {
+list-style-type:none;
+}
+
+*.list span.castItem {
+display:list-item;
+}
+/* Newton */
+.cancelled {
+    color: black;
+    background-color: black;
+}
+.strike {
+    text-decoration: line-through;
+     
+}
+/* jawalsh@indiana.edu */
+/* Added Martin's stuff below */
+/* This file created by Martin Holmes (mholmes@uvic.ca). Last modified 19/04/04. See accompanying teiHeader.xsl comments for further information. */
+div#teiHeader {
+    margin: 0% 5% 1% 5%;
+    display: none;
+    font-size: 80%;
+    font-family: georgia, times, serif;
+}
+div#teiHeader ul {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+div#teiHeader ul li {
+    text-indent: 0em;
+     
+}
+div.teiHeaderChild {
+    padding: 0.5em;
+    display: none;
+    background-color: #eeeeff;
+    border-style: solid;
+    border-color: #351408;
+    border-width: 2px 2px 2px 2px;
+}
+div.teiHeaderChild div.para {
+    margin: 0.5em 0.5em 0.5em 2.0em;
+    padding-left: 2em;
+    text-indent: -2em;
+}
+div.teiHeaderChild fieldset {
+    margin: 0.5em 0.5em 0.5em 2.0em;
+    border-color: #351408;
+}
+.teiHeaderLabel {
+    font-weight: bold;
+/* text-decoration: underline; */
+}
+div.teiHeaderHiddenDiv {
+    display: none;
+     
+}
+legend.Clickable {
+    cursor: pointer;
+    font-weight: bold;
+}
+legend.Clickable:hover {
+    text-decoration: underline;
+     
+}
+#HideMetadata {
+    display: none;
+     
+}
+button.MetadataButtonUp {
+    font-family: georgia, times, serif;
+    color: #351408;
+/* border: outset; */
+/* border-width: 1px; */
+/* border-color: #dddddd; */
+    background-color: #ffffff;
+    padding: 4px;
+}
+button.MetadataButtonDown {
+    font-family: georgia, times, serif;
+    color: #351408;
+/* border: inset; */
+/* border-width: 1px; */
+/* border-color: #ddddee; */
+    background-color: #eeeeff;
+    padding: 4px;
+}
+button.TabDown {
+    font-family: georgia, times, serif;
+    color: #351408;
+    background-color: #eeeeff;
+/* border-color: #000000 #000000 #eeeeff #000000; */
+/* border-style: solid; */
+/* border-width: 1px 1px 1px 1px; */
+    padding: 4px;
+    cursor: pointer;
+}
+button.TabUp {
+    font-family: georgia, times, serif;
+    color: #351408;
+    background-color: #ffffff;
+/* border-color: #000000; */
+/* border-style: solid; */
+/* border-width: 1px 1px 1px 1px; */
+    padding: 4px;
+    cursor: pointer;
+}
+h1.metadataWorkTitle {
+    font-size: 85%;
+    color: #351408;
+}
+.right {
+    text-align: right;
+     
+}
+hr.pb {
+    width: 20em;
+     
+}
+/* jawalsh for tool tips */
+span.tooltip, a.panelLink {
+    cursor: help;
+    color: blue;
+}
+/* jawalsh: for javascript tooltips */
+/* This is where you can customize the appearance of the tooltip */
+div#tipDiv table.line {
+    width: 100%;
+     
+}
+div#tipDiv a {
+    text-decoration: none;
+    color: #000;
+}
+div#tipDiv td.line {
+    font-size: 100%;
+    width: 80%;
+}
+.hidden {
+    display: none;
+     
+}
+span.tooltipData {
+    display: none;
+     
+}
+div#tipDiv {
+    position: absolute;
+    visibility: hidden;
+    z-index: 10000;
+    background-color: #d3c8b4;
+    border: 1px solid #351408;
+    width: 350px;
+    padding: 4px;
+    color: #000;
+    font-size: 80%;
+    line-height: 1.2;
+}
+/* These are optional. They demonstrate how you can individually format tooltip content */
+div.tp1 {
+    font-size: small;
+    color: #336;
+    font-style: italic;
+}
+div.tp2 {
+    font-weight: bolder;
+    color: #337;
+    padding-top: 4px;
+}
+span.tooltipWrapper {
+    display: inline;
+     
+}
+span.tooltipContent {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.ref {
+    text-decoration: none;
+     
+}
+span.inlineNote {
+     
+}
+/* italic class is deprecated in favor of i class */
+.italic {
+    font-style: italic;
+     
+}
+.i {
+    font-style: italic;
+     
+}
+/* bold class is deprecated in favor of b class */
+.bold {
+    font-weight: bold;
+     
+}
+.b {
+    font-weight: bold;
+     
+}
+/* underline class is deprecated in favor of u class */
+.underline {
+    text-decoration: underline;
+     
+}
+.u {
+    text-decoration: underline;
+     
+}
+.small {
+    font-size: 80%;
+     
+}
+.x-small {
+    font-size: 75%;
+     
+}
+.xx-small {
+    font-size: 70%;
+     
+}
+.large {
+    font-size: 110%;
+     
+}
+.x-large {
+    font-size: 135%;
+     
+}
+.xx-large {
+    font-size: 155%;
+     
+}
+.expanded {
+    letter-spacing: +3pt;
+     
+}
+/* normal class is deprecated in favor of n class */
+.normal {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+.n {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.fsn {
+    font-style: normal;
+}
+.red {
+    color: red;
+     
+}
+.glossTerm {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    color: #870429;
+    padding: 0;
+    margin: 0;
+}
+.gloss {
+    display: block;
+    margin-left: 1em;
+    margin-top: 0;
+}
+.border {
+    border-style: solid;
+    border-color: #351408;
+    border-width: 2px 2px 2px 2px;
+}
+.mono {
+    font-family: courier, monospace;
+     
+}
+.code {
+    font-family: courier, monospace;
+
+}
+div.caption {
+    font-size: 75%;
+    text-align: left;
+    margin: 3em 1em 3em 3em;
+    padding: 1em 0 1em 1em;
+    border: 1px solid #351408;
+    background-color: #d3c8b4;
+}
+span.comment {
+    font-family: courier, monospace;
+    color: gray;
+}
+.sc {
+    font-variant: small-caps;
+     
+}
+.erased {
+    color: #cccccc;
+     
+}
+ul.inline {
+    display: inline;
+     
+}
+/* div.inline used for div parents of inline lists */
+div.inline {
+    display: inline;
+     
+}
+ul.inlineColumn {
+    display: inline;
+    margin-left: 0;
+    padding-left: 0;
+/* text-indent: 0; */
+}
+ul.inline li {
+/* display: inline; */     
+}
+ul.inlineColumn li {
+/* This should be an inline *vertical* or columnular list.  Need to come up with proper CSS */
+    display: inline;
+    padding-right: .5em;
+    padding-left: .5em;
+    border-right: 1px dotted gray;
+}
+/*
+  ul.inlineColumn li:after {
+  }
+ */
+ul.inlineColumn li.first {
+    padding-left: 0;
+     
+}
+ul.inlineColumn li.last {
+    padding-right: 0;
+    border-right: none;
+}
+img.specialChar {
+    vertical-align: top;
+     
+}
+img {
+    border: 0;
+     
+}
+dt {
+    font-weight: bold;
+    font-size: 90%;
+    margin-bottom: .2em;
+}
+dd {
+    margin-bottom: .5em;
+     
+}
+/* swinburne stuff */
+div#docInfoLink {
+    margin: 0 0 0 2em;
+    font-size: x-small;
+}
+div#keyword-analysis {
+    position: fixed    ;
+    top: 10em;
+    right: 0;
+    font-size: 72%;
+    font-family: verdana, sans-serif;
+    width: 28em;
+    height: 27em;
+    margin: 2em;
+   
+/*    background-color: #d3c8b4; */
+    background-color: #d3c8b4;
+    border: 1px solid #351408;
+
+}
+
+div#keyword-analysis-head {
+color: #f4eee2;
+background-color: #351408;
+margin: 0 0 0 0;
+padding: 0 0 .2em .15em;
+font-weight: normal;
+font-size: 120%;
+letter-spacing: +3pt
+}
+
+div#keyword-analysis-content {
+overflow: auto;
+padding: 1em 2em 0 2em;
+height: 24em;
+margin: 0;
+}
+
+div#docInfo {
+    font-size: 80%;
+    margin: 0 0 0 2em;
+    padding: .5em;
+    background-color: #d3c8b4;
+    border: 2px solid #351408;
+
+}
+div#docInfoHidden, div#empty, div#hide, div#show {
+    display: none;
+     
+}
+div#docInfo h1 {
+    font-size: small;
+    margin: 0;
+    padding: 0;
+}
+div#swinburneHeaderImage {
+    float: left;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+div#swinburneHeaderContent {
+    padding: 0 0 0 0;
+    margin: 0;
+    width: 100%;
+    color: #edd7b7;
+}
+div#swinburneHeaderContent h1 {
+    margin: 0;
+    color: #edd7b7;
+}
+div#swinburneHeaderContent p {
+    font-size: 85%;
+    margin: 0;
+}
+div#swinburneArchiveHeader {
+    background-color: #351408;
+    padding: 0;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+div#internalNavBar {
+    font-size: small;
+     
+}
+div#swinburneHeaderNavBar {
+    margin: 0;
+    padding: 0 .5em 0 .5em;
+    clear: both;
+    color: #edd7b7;
+}
+div#swinburneHeaderNavBar a:link {
+    color: #edd7b7;
+    text-decoration: none;
+}
+div#swinburneHeaderNavBar a:visited {
+    color: #edd7b7;
+    text-decoration: none;
+}
+div#swinburneHeaderNavBar a:hover {
+    color: #a9170b;
+    text-decoration: underline;
+}
+div#navMain {
+    padding: 5px 0 3px 0;
+    margin: 0;
+    float: left;
+}
+input.navtextinput {
+    font-size: x-small;
+     
+}
+input.submit {
+    border: 3px double #999999;
+    border-top-color: #CCCCCC;
+    border-left-color: #CCCCCC;
+    background-color: #f4eee2;
+/* background-image: url(http://www.macromedia.com/ ... */
+    background-repeat: repeat-x;
+    color: #333333;
+    font-size: x-small;
+    font-weight: bold;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+div#navSearch {
+    padding: 0 0 0 0;
+    margin: 0 0 4px 0;
+    float: right;
+}
+div#navSearch form {
+    display: inline;
+     
+}
+/* fix so that container div expands to include floating children */
+div#swinburneArchiveHeader:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+div#footer {
+    border-top: 1px solid #351408;
+    width: 70%;
+}
+div#footer p {
+    font-family: verdana, sans-serif;
+    font-size: 9px;
+    color: #12253c;
+    padding: 2px;
+    width: 90%;
+}
+div#footer p a:link {
+    color: #333333;
+    text-decoration: none;
+}
+div#footer p a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+div#footer p a:hover {
+    color: #6b1d2b;
+    text-decoration: underline;
+}
+span.hit, span.subhit {
+    font-weight: bold;
+    color: red;
+}
+
+td.pb {
+font-size: 80%;
+    margin: .5em;
+}
+span.pb {
+    display: block;
+    font-size: 80%;
+    margin: .5em;
+     
+}
+span.pbNote {
+    font-style: normal;
+    color: #999999;
+}
+
+
+ul.noBullets {
+    list-style-type: none;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+td.chronoTableDate {
+    width: 10%;
+    font-size: 75%;
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 0 1em 0 0;
+}
+.suppress {
+    display: none;
+     
+}
+.block {
+    display: block;
+     
+}
+.blockquote {
+    display: block;
+    margin-left: 2em;
+    font-size: 90%;
+}
+
+.blockquote .blockquote {
+    display: block;
+    margin-left: 4em;
+    margin-right: 4em;
+    font-size: 100%;
+}
+.embedHeadRight {
+    display: block;
+    float: right;
+    font-size: x-small;
+    font-style: italic;
+    margin: .5em 0 0 1em;
+}
+.embedHeadLeft {
+    display: block;
+    float: left;
+    font-size: x-small;
+    font-style: italic;
+    margin: .5em 1em 0 0;
+}
+.justify {
+    text-align: justify;
+     
+}
+.indent {
+     
+}
+.indent:before {
+    content: "\A0\A0\A0\A0\A0\A0";
+     
+}
+td div.p:first-child {
+    margin: 0 0 1em 0;
+     
+}
+.comicFont {
+    font-family: CCBlahBlahBlah, ComicSansMS, BradleyHandITCTTBold, Verdana, Sans-Serif;
+     
+}
+
+/*
+.eg {
+    padding-left: 2em;
+    border: 1px dashed #990000;
+    background-color: #99ffff;
+    font-size: small;
+}*/
+
+.eg.block
+{
+        display: block;
+        border: 1px solid black;
+        padding: 2em 2em 2em 2em; 
+        margin: .5em;
+        background-color: rgb(220,220,220);
+	font-size: 9pt;
+	font-family: Monaco, Courier, monospace;
+	color: blue;
+	white-space: pre;
+}
+
+img.thumbLink {
+    margin: 1em;
+    vertical-align: middle;
+     border: 2px solid #351408;
+
+}
+span.sense {
+    display: block;
+     
+}
+span.quotes:before {
+    content: "\8220";
+     
+}
+span.quotes:after {
+    content: "\8221";
+     
+}
+span.sq:before {
+    content: "\2018";
+     
+}
+span.sq:after {
+    content: "\2019";
+     
+}
+
+/* swinburne poems tables of contents */
+
+table.toc {
+width: 100%;
+}
+
+table.toc tr {
+display: block;
+}
+
+tr.toc {
+    display: block;
+	width: 100%; 
+	height: .8em; /* needed by NN6*/
+    line-height: .5em;
+	border-bottom: 2px dotted gray;
+	margin-top: 1em;
+
+}
+
+tr.tocPageHead {
+    display: block;
+	width: 100%; 
+	height: .8em; /* needed by NN6*/
+    line-height: .5em;
+	margin-top: 1em;
+}
+
+tr.toc:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+td.tocItem {
+display: block;
+float: left;
+	position: relative; /*needed by IE6*/
+	top: 1px;
+  /*  background-color: #f4eee2; */
+	margin-bottom: -.3em;
+    border-bottom: 4px solid white;
+	padding-right: 5px;
+	text-align: left;
+	font-variant: small-caps;
+
+
+
+
+
+}
+td.tocPageHead {
+display: block;
+text-align: right;
+}
+td.tocNumber {
+display: block;
+float: right;
+	position: relative; /* needed by IE6*/
+	top: 1px;
+/*    background-color: #f4eee2; */
+	margin-bottom: -.3em;
+    padding-left: .5em;
+	text-align: right;
+border-bottom: 4px solid white;
+}
+
+a {
+text-decoration: none;
+}
+.bracket:before {
+content: "\003C";
+}
+
+.bracket:after {
+content: "\003E";
+}
+
+span.exam-answer {
+ display: block;
+ height: 4em;
+}
+
+span.emph {
+font-style:italic;
+}
+
+/* chrono table stuff */
+table#chronoTable td {font-size: 60%; padding: .5em; background-color: #efffff; border: 1px solid #351408;}
+table#chronoTable {width: 100%}
+body.text {width: 70%;}
+#chronoTable ul {margin: 0; padding: 0;}
+#chronoTable li {list-style-type:none; padding-left: 1em; text-indent: -1em;}
+
+.catDesc {font-weight: bold; font-style: italic;}

@@ -1,0 +1,239 @@
+/* reset: start */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+table, td, th { vertical-align: middle; }
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/* reset: end */
+
+/* lists */
+
+ul, ol, dl {
+    margin-left:2em!important;
+    margin-top:1em;
+}
+
+.list-style-type_none {list-style-type:none;}
+.list-style-type_circle {list-style-type:circle;}
+.list-style-type_disc {list-style-type:disc;}
+.list-style-type_square {list-style-type:square;}
+.list-style-type_armenian {list-style-type:armenian;}
+.list-style-type_decimal {list-style-type:decimal;}
+.list-style-type_decimal-leading-zero {list-style-type:decimal-leading-zero;}
+.list-style-type_georgian {list-style-type:georgian;}
+.list-style-type_lower-alpha {list-style-type:lower-alpha;}
+.list-style-type_lower-greek {list-style-type:lower-greek;}
+.list-style-type_lower-latin {list-style-type:lower-latin;}
+.list-style-type_lower-roman {list-style-type:lower-roman;}
+.list-style-type_upper-alpha {list-style-type:upper-alpha;}
+.list-style-type_upper-latin {list-style-type:upper-latin;}
+.list-style-type_upper-roman {list-style-type:upper-roman;}
+
+.asteriskDivider:before {
+    content: "* * * * *";
+}
+
+td div.eg {
+  border-top: 1px dashed blue;
+  border-left: 1px dashed blue;
+  background-color:inherit;
+  padding: 2em;  
+  margin:.5em .5em 0 .5em;
+}
+
+div.eg {
+    border-top: 1px dashed blue;
+    border-left: 1px dashed blue;
+    background-color: white;
+    padding: 2em;
+}
+
+/* paragraphs */
+
+span.p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    widows: 2;
+    orphans: 2;
+    line-height: 1.6;
+/* text-align:left; */
+/* text-align:justify; */
+/* text-indent: 2em; */
+}
+
+/* blockquote */
+blockquote, .blockquote {
+    display: block;
+    margin: 2em;
+    font-size:90%;
+    border:1px dashed #DDDDDD;
+    padding:1em;
+}
+.blockquote .blockquote, blockquote blockquote, blockquote .blockquote, .blockquote blockquote, .caption .blockquote, .caption blockquote {
+    display: block;
+    margin:1em;
+    padding:0;
+    border:none;
+    font-size: 100%;
+}
+
+/* paragraphs inside other elements*/
+
+.blockquote span.p, div.caption span.p {
+line-height:1;   
+}
+
+span.blockquote span.p:first-child, div.caption span.p:first-child {
+margin-top:0;    
+}
+
+span.blockquote span.p:last-child, div.caption span.p:last-child {
+margin-bottom:0;    
+}
+
+
+
+/* figures */
+
+div.caption {
+    font-size:90%;
+    text-align:left;
+    margin-top:1em;
+    margin-bottom:1em;
+    margin-left:auto;
+    margin-right:auto;
+    /* Slightly less than max-width of img */
+    max-width:720px;
+    padding:1em;
+    border:1px solid #351408;
+    background-color:#d3c8b4;
+    line-height:1;
+    clear:both;
+}
+
+img {
+    border: 2px solid #999999;
+    padding: 20px;
+    background-color:white;
+    /* Slightly larger than max-width of div.caption */
+    max-width:750px;
+}
+
+/* From tei2html-slides.css
+
+div.caption
+{
+	font-size: small;
+	text-align: left;
+	margin: 0em 1em 3em 3em;
+	padding: 1em;
+    color: black;
+	border: 1px solid black;
+	background-color: #99ccff;
+	clear:both;
+}
+
+*/
+
+/* xml-serialization */
+
+
+
+.eg-element {
+    color:rgb(1,101,200);
+}
+.eg-comment {
+    color:gray;
+}
+.eg-att, .eg-nsdecl {
+    color:rgb(245,134,80);
+}
+.eg-attvalue, .eg-ns {
+    color:rgb(153,51,0);
+}
+.eg-text {
+    color:black;
+}
+
+pre {
+    font-family:"Andale Mono", courier, fixed, monospace;
+    font-size:80%;
+}
+
+/* wraps code in <pre> tags. */
+pre.wrap, .wrap pre {
+
+/*    overflow-x: auto; */ /*overflow-x:auto was adding veritical scrollbar ???*/
+/* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+    white-space: pre-wrap;
+/* css-3 */
+    white-space: -moz-pre-wrap !important;
+/* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+/* Opera 4-6 */
+    white-space: -o-pre-wrap;
+/* Opera 7 */
+/* width: 99%; */
+    word-wrap: break-word;
+/* Internet Explorer 5.5+ */
+}
+
+table.tagdoc{
+width:800px;    
+}
+table.tagdoc, table.tagdoc tr, table.tagdoc.td  {
+border-collapse:collapse;    
+}
+
+table.tagdoc tr td{
+border: 1px solid black;   
+border-spacing:0;
+padding:1%;
+
+}
+
+div#endnotes h1 {
+text-align:center; 
+}
