@@ -5,4 +5,4 @@
 tei2html is a bundle of XSLT style sheets, CSS, and Javascript for transforming TEI P5 XML to (hopefully) valid XHTML.
 
 #Configuration Options
-tei2html has a number of configuration options, allowing one, for instance, to modify the frequency of line numbers in verse, or to turn on and off the output of page numbers.  These configuration options are collected in the (tei2html-conf.xsl)[../xslt/tei2html-conf.xsl] style sheet and documented in the accompanying (XSLTdoc documentation)[XSLTdoc/tei2html-conf.xsl.xd.html].
+tei2html has a number of configuration options, allowing one, for instance, to modify the frequency of line numbers in verse, or to turn on and off the output of page numbers.  These configuration options are collected in the (tei2html-conf.xsl)[../xslt/tei2html-conf.xsl] style sheet and documented in the accompanying (XSLTdoc documentation)[XSLTdoc/file:///Users/jawalsh/development/tei2html_svn/doc/XSLTdoc/tei2html.html].
